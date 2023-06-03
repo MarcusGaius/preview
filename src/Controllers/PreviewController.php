@@ -5,13 +5,13 @@ namespace MarcusGaius\Preview\Controllers;
 use craft\elements\Entry;
 use craft\helpers\StringHelper;
 use craft\web\Controller;
-use craft\web\Response;
 use MarcusGaius\Preview\Events\PreviewActionEvent;
 use MarcusGaius\Preview\Preview;
+use yii\web\Response;
 
 class PreviewController extends Controller
 {
-	const EVENT_CUSTOMIZE_PREVIEW_ACTION = 'customizePreviewActionEvent';
+	public const EVENT_CUSTOMIZE_PREVIEW_ACTION = 'customizePreviewActionEvent';
 
 	public $defaultAction = 'index';
 

@@ -5,6 +5,10 @@ namespace MarcusGaius\Preview\Events;
 use Exception;
 use yii\base\Event;
 
+/**
+ * @property string $sectionHandle
+ * @package MarcusGaius\Preview\Events
+ */
 class PreviewActionEvent extends Event
 {
 	private string $_sectionHandle;
@@ -19,7 +23,9 @@ class PreviewActionEvent extends Event
 
 	public function setSectionHandle(string $section): self
 	{
-		if (isset($this->_sectionHandle) && $this->_sectionHandle !== null) throw new Exception('Section cannot be modified');
+		if (isset($this->_sectionHandle) && $this->_sectionHandle !== null) {
+			throw new Exception('Section cannot be modified');
+		}
 
 		$this->_sectionHandle = $section;
 

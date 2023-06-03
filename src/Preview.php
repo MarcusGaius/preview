@@ -13,16 +13,16 @@ use yii\base\Module;
 
 class Preview extends Module implements BootstrapInterface
 {
-	const ID = 'craft-preview';
+	public const ID = 'craft-preview';
 
 	public static ?Settings $settings = null;
 
-	public function __construct($id = self::ID, $parent = null, $config = [])
+	public function __construct($id = self::ID, $parent = null, array $config = [])
 	{
 		parent::__construct($id, $parent, $config);
 	}
 
-	public function bootstrap($app)
+	public function bootstrap($app): void
 	{
 		if (!$app instanceof CraftWebApp) {
 			return;
@@ -56,8 +56,8 @@ class Preview extends Module implements BootstrapInterface
 		Event::on(
 			UrlManager::class,
 			UrlManager::EVENT_REGISTER_SITE_URL_RULES,
-			function (RegisterUrlRulesEvent $event): void {
-				$event->rules['<controller:(preview)>/<section:{slug}>/<slug:{slug}>'] = "$this->id/<controller>";
+			static function(RegisterUrlRulesEvent $event): void {
+				$event->rules['<controller:(preview)>/<section:{slug}>/<slug:{slug}>'] = static::ID . '/<controller>';
 			}
 		);
 	}

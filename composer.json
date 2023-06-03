@@ -18,6 +18,11 @@
 		"optimize-autoloader": true,
 		"sort-packages": true
 	},
+	"scripts": {
+		"check-cs": "ecs check --ansi",
+		"fix-cs": "ecs check --ansi --fix",
+		"phpstan": "phpstan --memory-limit=1G"
+	},
 	"license": "MIT",
 	"autoload": {
 		"psr-4": {
