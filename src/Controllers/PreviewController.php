@@ -17,15 +17,17 @@ class PreviewController extends Controller
 
 	public function actionIndex(string $slug, string $section): Response
 	{
-		$event = new PreviewActionEvent();
-		$event->sectionHandle = StringHelper::toCamelCase($section);
+		$sectionHandle = StringHelper::toCamelCase($section);
+		$event = new PreviewActionEvent(
+			sectionHandle: $sectionHandle,
+		);
 
 		$this->trigger(self::EVENT_CUSTOMIZE_PREVIEW_ACTION, $event);
 		$template = $event->template ?: sprintf("%'/s/previews/%s", Preview::getInstance()::$settings->defaultTemplatePath, $section);
 
 		$entry = Entry::find()
 			->slug(\craft\helpers\Db::escapeParam($slug))
-			->section(\craft\helpers\Db::escapeParam(StringHelper::toCamelCase($section)))
+			->section(\craft\helpers\Db::escapeParam($sectionHandle))
 			->with($event->with)
 			->one();
 
