@@ -1,0 +1,37 @@
+{
+	"name": "marcusgaius/craft-preview",
+	"description": "Automated preview for CraftCMS Entries without public URL.",
+	"type": "yii2-extension",
+	"version": "1.0.0",
+	"require": {
+		"craftcms/cms": "^4.4"
+	},
+	"require-dev": {
+		"craftcms/ecs": "dev-main",
+		"craftcms/phpstan": "dev-main"
+	},
+	"config": {
+		"allow-plugins": {
+			"craftcms/plugin-installer": true,
+			"yiisoft/yii2-composer": true
+		},
+		"optimize-autoloader": true,
+		"sort-packages": true
+	},
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+			"MarcusGaius\\Preview\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "Marko Gajić",
+			"email": "metalmorgoth@gmail.com",
+			"homepage": "https://github.com/MarcusGaius"
+		}
+	],
+	"extra": {
+		"bootstrap": "MarcusGaius\\Preview\\Preview"
+	}
+}
