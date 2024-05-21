@@ -2,9 +2,9 @@
 	"name": "marcusgaius/craft-preview",
 	"description": "Automated preview for CraftCMS Entries without public URL.",
 	"type": "yii2-extension",
-	"version": "1.0.2",
+	"version": "2.0.0",
 	"require": {
-		"craftcms/cms": "^3.8|^4.4"
+		"craftcms/cms": "^3.8|^4.4|^5.0"
 	},
 	"require-dev": {
 		"craftcms/ecs": "dev-main",
